@@ -3,10 +3,10 @@
 int main(){
 float a,b,sum;
 printf("Enter first number: ");
-scanf("%f",&a);
+scanf("%.2f",&a);
 printf("Enter second number:");
-scanf("%f",&b);
+scanf("%.2f",&b);
 sum= a+b;
-printf("sum of %f+%f=%f\n",a,b,sum);
+printf("sum of %.2f+%.2f=%.2f\n",a,b,sum);
 return 0;
 }
