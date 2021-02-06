@@ -2,9 +2,9 @@
 #include<stdio.h>
 float input(char a)
 {
-  float b,
+  float c;
   printf("Enter the value of %c",a);
-  scanf("%f",&b);
+  scanf("%f",&c);
   return b;
 }
 float volume(float h,float d,float b)
