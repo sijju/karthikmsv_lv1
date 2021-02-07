@@ -3,12 +3,13 @@
 float input()
 {
   float c;
+  printf("Enter the value of h,d,b respectively:");
   scanf("%f",&c);
   return c;
 }
 float volume(float h,float d,float b)
 {
-  float volume = ((h*d*b)+(d/b))/3;
+ float volume = ((h*d*b)+(d/b))/3;
   return volume;
 }
 void display(float n)
@@ -18,12 +19,9 @@ void display(float n)
 int main()
 {
  float h,d,b,n;
- printf("Enter the value of h:");
- h=input();
- printf("Enter the value of d:");
+  h=input();
  d=input();
- printf("Enter the value of b:");
- b=input();
+  b=input();
  n=volume(h,d,b);
  display(n);
  return 0;
