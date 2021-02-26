@@ -1,4 +1,4 @@
-//WAP to find the sum of two fractions.
+
 #include<stdio.h>
 typedef struct
     {
@@ -9,29 +9,45 @@ typedef struct
  
     Fraction sum(Fraction,Fraction);
  
-    Fraction input(int x)
+    Fraction input(int z)
     {
      Fraction f;
-     printf("Enter fraction %d(numerator/denominator):",x);
+     printf("Enter fraction %d(numerator/denominator):",z);
      scanf("%d/%d",&f.num,&f.deno);
      return f;
    
     }
-    Fraction sum(Fraction f1, Fraction f2)
-    {
-     Fraction add={(f1.num * f2.deno) + (f2.num * f1.deno), f1.deno * f2.deno};
-     int gcd=1;
-     for(int i=1;i<=add.num && i<=add.deno;i++)
-     {
-       if(add.num%i==0 && add.deno%i==0)
-       {
-        gcd=i;
-        }
+ int gcd(int x,int y)
+ { 
+     if (y!=0){
+      return gcd(y,x%y);
      }
-      add.num= add.num/gcd;
-      add.deno= add.deno/gcd;
-      return add;
+     else 
+      return x;
+ }
+   Fraction sum(Fraction f1, Fraction f2) 
+ { 
+  Fraction add; 
+  int gcd1=gcd(f1.deno,f2.deno);
+  if (f1.deno == f2.deno) 
+    { 
+      add.num = (f1.num + f2.num); 
+      add.deno = f1.deno; 
+      return add; 
+    } 
+ 
+    else
+    {
+      add.num = (f1.num*f2.deno)+(f2.num*f1.deno); 
+      add.deno = (f1.deno*f2.deno)/gcd1; 
+      int final=gcd(add.num,add.deno);
+      add.num=add.num/final;
+      add.deno=add.deno/final;
+      return add;  
+
     }
+ }    
+ 
    void display(Fraction add)
    {
      printf("The addition of two fractions is %d/%d",add.num,add.deno);
@@ -44,4 +60,3 @@ typedef struct
      display(result);  
      return 0;
     }
-   
